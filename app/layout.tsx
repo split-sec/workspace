@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Menubar from "./components/menubar/menubar";
 
 const gilroy = localFont({
   src: [
     {
       path: "./fonts/Gilroy-Regular.ttf",
       weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Gilroy-SemiBold.ttf",
+      weight: "600",
       style: "normal",
     },
     {
@@ -40,7 +46,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={gilroy.className}>{children}</body>
+      <body className={`${gilroy.className} bg-dull-bg py-2 sm:pl-[60px] pr-2`}>
+        <Menubar />
+        <div className="rounded-[20px] bg-bright-bg min-h-screen p-10">{children}</div>
+      </body>
     </html>
   );
 }

@@ -13,6 +13,7 @@ const config: Config = {
       'subtext': '#717274',
       'bright-bg': '#FAFAFA',
       'dull-bg': '#EFEFEF',
+      'inactive-button-border': '#DBDBDB',
     },
   },
   plugins: [],

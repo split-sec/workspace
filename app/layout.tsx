@@ -11,6 +11,11 @@ const gilroy = localFont({
       style: "normal",
     },
     {
+      path: "./fonts/Gilroy-Medium.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
       path: "./fonts/Gilroy-SemiBold.ttf",
       weight: "600",
       style: "normal",
@@ -46,7 +51,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${gilroy.className} bg-dull-bg py-2 sm:pl-[60px] pr-2`}>
+      <body className={`${gilroy.className} bg-dull-bg py-2 mb-[60px] sm:mb-0 sm:pl-[60px] px-2`}>
         <Menubar />
         <div className="rounded-[20px] bg-bright-bg min-h-screen p-10">{children}</div>
       </body>

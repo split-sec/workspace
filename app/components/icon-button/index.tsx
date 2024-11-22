@@ -9,7 +9,7 @@ export default function IconButtonComponent({ iconPath, altText, width, height, 
                 width={width}
                 height={height}
             />
-            <p className="text-md text-primary font-semibold">{text}</p>
+            <p className="text-xs text-primary font-semibold">{text}</p>
         </div>
     )
 }

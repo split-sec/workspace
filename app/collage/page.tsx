@@ -6,7 +6,7 @@ export default function CollagePage() {
         <ContentPage 
             header="collage" 
             subtext="collaborate with friends on your shared collections" 
-            content={<ComingSoon />} 
+            mainContent={<ComingSoon />} 
         />
     )
 }

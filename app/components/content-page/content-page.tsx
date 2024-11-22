@@ -1,7 +1,6 @@
 import { ContentPageProps } from "@/app/types/content-page";
-import ActionItemsComponent from "../action-items";
 
-export default function ContentPage({ header, subtext, content, showActionItems = false }: ContentPageProps) {
+export default function ContentPage({ header, subtext, mainContent, filterContent = <></> }: ContentPageProps) {
     return (
       <>
         <div className="sm:my-2">
@@ -10,11 +9,9 @@ export default function ContentPage({ header, subtext, content, showActionItems 
                 <h1 className="font-black text-primary text-[32px]">{header ?? 'header'}</h1>
                 <p className="font-semibold text-subtext text-base">{subtext ?? 'subtext'}</p>
                 </div>
-                {
-                    showActionItems ? <ActionItemsComponent /> : <></>
-                }
+                {filterContent}
             </div>
-            {content}
+            {mainContent}
             </div>
       </>
     );

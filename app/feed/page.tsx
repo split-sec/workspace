@@ -6,7 +6,7 @@ export default function FeedPage() {
         <ContentPage 
             header="feed" 
             subtext="storyboard feed based on personal preferences" 
-            content={<ComingSoon />} 
+            mainContent={<ComingSoon />} 
         />
     )
 }

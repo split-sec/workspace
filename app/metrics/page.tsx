@@ -6,7 +6,7 @@ export default function MetricsPage() {
         <ContentPage 
             header="metrics" 
             subtext="view your storyboard visits, likes and shares" 
-            content={<ComingSoon />} 
+            mainContent={<ComingSoon />} 
         />
     )
 }

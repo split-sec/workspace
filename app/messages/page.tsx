@@ -6,7 +6,7 @@ export default function MessagesPage() {
         <ContentPage 
             header="messaging" 
             subtext="chat with your friends about your storyboards" 
-            content={<ComingSoon />} 
+            mainContent={<ComingSoon />} 
         />
     )
 }

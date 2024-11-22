@@ -8,6 +8,7 @@ import SortByComponent from "./components/sortby";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { CollectionItem, getCollectionData, optionsList } from "./utils/collection";
 import CollectionCardComponent from "./components/collection-card";
+import ActionItemsComponent from "./components/action-items";
 
 export default function Home() {
   const router = useRouter();
@@ -31,7 +32,7 @@ export default function Home() {
       if (targetOption === 'All Files' && !queryParams.get('type')) {
         return targetOption;
       }
-      
+
       return queryParams.get('type') === targetOption;
     },
     [queryParams]
@@ -58,7 +59,7 @@ export default function Home() {
       <ContentPage 
         header="collections" 
         subtext="personalized content storyboards" 
-        content={<div className="my-8">
+        mainContent={<div className="my-8">
           <div className="flex justify-between">
             <div className="flex items-center gap-x-3">
               <NewFolderComponent />
@@ -78,7 +79,7 @@ export default function Home() {
             </div>
           </div>
         </div>} 
-        showActionItems={true}
+        filterContent={<ActionItemsComponent />}
       />
     </>
   );

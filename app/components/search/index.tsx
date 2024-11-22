@@ -1,7 +1,29 @@
-export default function SearchComponent() {
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useCallback } from "react";
+
+export default function SearchComponent({ queryParamName }: any) {
+    const router = useRouter();
+    const pathname = usePathname();
+    const queryParams = useSearchParams();
+    const inputValue = queryParams.get(queryParamName) ?? '';
+
+    const handleChange = useCallback(
+        (value: string) => {
+          const params = new URLSearchParams(queryParams.toString())
+          params.set(queryParamName, value);
+     
+          router.push(pathname + '?' + params);
+        },
+        [queryParams]
+    );
+
     return (
-        <div>
-            Search
+        <div className="outline outline-1 outline-inactive-button-border rounded-md p-3 flex items-center justify-between grow">
+            <div className="flex items-center gap-x-2">
+                <img src="/search-icon.svg" className="h-3 w-3" alt="Search Icon" />
+                <input value={inputValue} onChange={(event: React.FormEvent<HTMLInputElement>) => handleChange(event.currentTarget.value)} placeholder="Type here to search" className="bg-bright-bg text-xs text-primary font-regular grow"/>
+            </div>
+            <img src="/close-icon.svg" className={`h-[14px] w-[14px] ${inputValue.length > 0 ? "block" : "hidden"}`} alt="Delete Icon" onClick={() => handleChange("")} />
         </div>
     );
 }

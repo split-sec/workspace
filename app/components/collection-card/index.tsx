@@ -1,5 +1,4 @@
 import { CollectionCardProps } from "@/app/utils/collection";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 export default function CollectionCardComponent({ data }: CollectionCardProps) {

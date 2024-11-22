@@ -1,4 +1,4 @@
-import { ContentPageProps } from "@/app/types/content-page";
+import { ContentPageProps } from "@/app/types/shared";
 
 export default function ContentPage({ header, subtext, mainContent, filterContent = <></> }: ContentPageProps) {
     return (

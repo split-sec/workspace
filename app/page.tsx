@@ -1,12 +1,15 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+
+import { CollectionItem } from "./types/shared";
+import { getCollectionData, optionsList } from "./utils/collection";
+
 import ComboButtonFilterComponent from "./components/combo-button-filter";
 import ContentPage from "./components/content-page/content-page";
 import NewFolderComponent from "./components/new-folder";
 import SortByComponent from "./components/sortby";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { CollectionItem, getCollectionData, optionsList } from "./utils/collection";
 import CollectionCardComponent from "./components/collection-card";
 import ActionItemsComponent from "./components/action-items";
 import EditCollectionsComponent from "./components/edit-collections";

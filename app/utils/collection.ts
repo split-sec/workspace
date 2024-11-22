@@ -1,11 +1,4 @@
-export type CollectionItem = {
-    id: number,
-    title: string,
-    type: 'Photos' | 'Videos' | 'Documents',
-    noOfItems: number,
-    thumbnail: string,
-    altText: string,
-};
+import { CollectionItem, OptionItem } from "../types/shared";
 
 const mockCollectionData: CollectionItem[] = [
     {
@@ -78,10 +71,6 @@ export const getCollectionData = () => {
     return [...mockCollectionData];
 }
 
-export type OptionItem = {
-    title: string,
-};
-
 export const optionsList: OptionItem[] = [
     {
         title: 'All Files',
@@ -97,9 +86,3 @@ export const optionsList: OptionItem[] = [
     },
 ];
 
-export type CollectionCardProps = {
-    data: CollectionItem,
-    isEditMode: boolean,
-    onChange?: Function,
-    key: string,
-};

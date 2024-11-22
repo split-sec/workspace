@@ -1,5 +1,12 @@
 import { MouseEventHandler } from "react";
-import { OptionItem } from "../utils/collection";
+import { ReactElement } from "react"
+
+export type ContentPageProps = {
+    header: string,
+    subtext: string,
+    mainContent: ReactElement,
+    filterContent?: ReactElement,
+};
 
 export type SortByComponentProps = {
     queryName: string,
@@ -38,4 +45,24 @@ export type IconButtonComponentProps = {
     height: number,
     text: string,
     onClick?: MouseEventHandler<HTMLDivElement>,
+};
+
+export type OptionItem = {
+    title: string,
+};
+
+export type CollectionItem = {
+    id: number,
+    title: string,
+    type: 'Photos' | 'Videos' | 'Documents',
+    noOfItems: number,
+    thumbnail: string,
+    altText: string,
+};
+
+export type CollectionCardProps = {
+    data: CollectionItem,
+    isEditMode: boolean,
+    onChange?: Function,
+    key: string,
 };

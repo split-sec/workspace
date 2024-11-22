@@ -1,8 +1,6 @@
 "use client"
 
 import { bottomNavbarButtonList, navbarButtonList, navbarIconsList } from "@/app/utils/navbar";
-import Image from "next/image";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import DesktopNavigableItem from "../desktop-navigable-item";
 import DesktopNonNavigableItem from "../desktop-non-navigable-item";
@@ -20,7 +18,7 @@ export default function Menubar() {
         <>
             <div className="flex items-center justify-between fixed bottom-0 h-[60px] left-0 w-full sm:invisible py-4 px-8 bg-bright-bg">
             {
-                navigableItems.map((item: any, id: any) => {
+                navigableItems.map((item, id: number) => {
                     return (
                         <MobileNavigableItem 
                             iconPath={isActive(item.href) ? item.iconPathActive : item.iconPath} 
@@ -36,7 +34,7 @@ export default function Menubar() {
             <div className="invisible sm:visible fixed flex flex-col items-center justify-between left-0 top-0 h-full py-16 px-5">
                 <div className="flex flex-col gap-10">
                 {
-                    navigableItems.map((item: any, id: any) => {
+                    navigableItems.map((item, id: number) => {
                         return (
                             <DesktopNavigableItem 
                                 iconPath={isActive(item.href) ? item.iconPathActive : item.iconPath} 
@@ -48,7 +46,7 @@ export default function Menubar() {
                     })
                 }
                 {
-                    nonNavigableItems.map((item: any, id: any) => {
+                    nonNavigableItems.map((item, id: number) => {
                         return (
                             <DesktopNonNavigableItem
                                 iconPath={item.iconPath}
@@ -62,7 +60,7 @@ export default function Menubar() {
                 </div>
                 <div className="flex flex-col gap-10">
                 {
-                    bottomNonNavigableItems.map((item: any, id: any) => {
+                    bottomNonNavigableItems.map((item, id: number) => {
                         return (
                             <DesktopNonNavigableItem
                                 iconPath={item.iconPath}

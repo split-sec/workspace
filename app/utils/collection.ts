@@ -37,7 +37,7 @@ const mockCollectionData: CollectionItem[] = [
         title: 'Collection 4',
         type: 'Videos',
         noOfItems: 3,
-        thumbnail: '',
+        thumbnail: 'https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4',
         altText: 'Collection 4 Thumbnail',
     },
     {
@@ -53,7 +53,7 @@ const mockCollectionData: CollectionItem[] = [
         title: 'Collection 6',
         type: 'Videos',
         noOfItems: 4,
-        thumbnail: '',
+        thumbnail: 'https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4',
         altText: 'Collection 6 Thumbnail',
     },
     {
@@ -61,7 +61,7 @@ const mockCollectionData: CollectionItem[] = [
         title: 'Collection 7',
         type: 'Videos',
         noOfItems: 3,
-        thumbnail: '',
+        thumbnail: 'https://cdn.pixabay.com/video/2024/11/07/240320_tiny.mp4',
         altText: 'Collection 7 Thumbnail',
     },
     {
@@ -99,5 +99,7 @@ export const optionsList: OptionItem[] = [
 
 export type CollectionCardProps = {
     data: CollectionItem,
-    key: number,
+    isEditMode: boolean,
+    onChange?: Function,
+    key: string,
 };

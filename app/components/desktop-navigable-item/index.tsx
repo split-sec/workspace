@@ -1,7 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function DesktopNavigableItem({ iconPath, altText, href }: any) {
+export default function DesktopNavigableItem({ 
+    iconPath, 
+    altText, 
+    href 
+}: {
+    iconPath: string, 
+    altText: string, 
+    href: string
+}) {
     return (
         <Link href={href}>
             <Image

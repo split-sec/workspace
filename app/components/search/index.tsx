@@ -1,7 +1,7 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
 
-export default function SearchComponent({ queryParamName }: any) {
+export default function SearchComponent({ queryParamName }: { queryParamName: string }) {
     const router = useRouter();
     const pathname = usePathname();
     const queryParams = useSearchParams();
@@ -21,9 +21,9 @@ export default function SearchComponent({ queryParamName }: any) {
         <div className="outline outline-1 outline-inactive-button-border rounded-md p-3 flex items-center justify-between grow">
             <div className="flex items-center gap-x-2">
                 <img src="/search-icon.svg" className="h-3 w-3" alt="Search Icon" />
-                <input value={inputValue} onChange={(event: React.FormEvent<HTMLInputElement>) => handleChange(event.currentTarget.value)} placeholder="Type here to search" className="bg-bright-bg text-xs text-primary font-regular grow"/>
+                <input value={inputValue} onChange={(event: React.FormEvent<HTMLInputElement>) => handleChange(event.currentTarget.value)} placeholder="Type here to search" className="bg-bright-bg text-xs text-primary font-regular grow cursor-pointer"/>
             </div>
-            <img src="/close-icon.svg" className={`h-[14px] w-[14px] ${inputValue.length > 0 ? "block" : "hidden"}`} alt="Delete Icon" onClick={() => handleChange("")} />
+            <img src="/close-icon.svg" className={`h-[14px] w-[14px] cursor-pointer ${inputValue.length > 0 ? "block" : "hidden"}`} alt="Delete Icon" onClick={() => handleChange("")} />
         </div>
     );
 }

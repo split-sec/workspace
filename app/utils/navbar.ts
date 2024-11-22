@@ -1,4 +1,6 @@
-export const navbarIconsList = [
+import { NavbarIconType, NonNavbarIconType } from "../types/shared";
+
+export const navbarIconsList: NavbarIconType[] = [
     {
         iconPath: '/search-icon.svg',
         iconPathActive: '/search-icon-active.svg',
@@ -31,7 +33,7 @@ export const navbarIconsList = [
     },
 ];
 
-export const navbarButtonList = [
+export const navbarButtonList: NonNavbarIconType[] = [
     {
         iconPath: '/send-icon.svg',
         onClick: () => {},
@@ -39,7 +41,7 @@ export const navbarButtonList = [
     },
 ];
 
-export const bottomNavbarButtonList = [
+export const bottomNavbarButtonList: NonNavbarIconType[] = [
     {
         iconPath: '/fan-icon.svg',
         onClick: () => {},

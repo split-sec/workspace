@@ -1,8 +1,12 @@
+import { IconButtonComponentProps } from "@/app/types/shared";
 import Image from "next/image";
 
-export default function IconButtonComponent({ iconPath, altText, width, height, text }: any) {
+export default function IconButtonComponent({ iconPath, altText, width, height, text, onClick = () => {} }: IconButtonComponentProps) {
     return (
-        <div className="cursor-pointer rounded-md outline outline-1 outline-inactive-button-border py-3 px-6 flex items-center justify-center gap-x-3">
+        <div 
+            onClick={onClick}
+            className="cursor-pointer rounded-md outline outline-1 outline-inactive-button-border py-3 px-6 flex items-center justify-center gap-x-3"
+        >
             <Image 
                 src={iconPath}
                 alt={altText}

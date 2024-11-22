@@ -1,6 +1,15 @@
 import Image from "next/image";
+import { MouseEventHandler } from "react";
 
-export default function DesktopNonNavigableItem({ iconPath, altText, onClick }: any) {
+export default function DesktopNonNavigableItem({ 
+    iconPath, 
+    altText, 
+    onClick 
+}: {
+    iconPath: string,
+    altText: string,
+    onClick: MouseEventHandler<HTMLImageElement>,
+}) {
     return (
         <Image
             src={iconPath}

@@ -29,7 +29,7 @@ export default function CollectionCardComponent({ data, isEditMode, onChange = (
                         src={data.thumbnail}
                         alt={data.altText}
                         onClick={() => redirectToCollection(data.id)}
-                        className="rounded-2xl object-cover"
+                        className="rounded-2xl object-cover w-full h-full"
                     />
                 </div>
             )

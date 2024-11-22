@@ -1,4 +1,4 @@
-import { CollectionCardProps } from "@/app/utils/collection";
+import { CollectionCardProps } from "@/app/types/shared";
 import { useRouter } from "next/navigation";
 
 export default function CollectionCardComponent({ data, isEditMode, onChange = () => {} }: CollectionCardProps) {

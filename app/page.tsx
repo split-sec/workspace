@@ -91,10 +91,14 @@ export default function Home() {
       <ContentPage 
         header="collections" 
         subtext="personalized content storyboards" 
-        filterContent={isEditMode ? <EditCollectionsComponent onSave={handleSave} onClose={handleCancel}  /> : <ActionItemsComponent onClick={() => setIsEditMode(true)} />}
-        mainContent={<div className="my-8">
-          <div className="flex justify-between">
-            <div className="flex items-center gap-x-3">
+        filterContent={isEditMode ? (
+          <EditCollectionsComponent onSave={handleSave} onClose={handleCancel} />
+          ) : (
+          <ActionItemsComponent onClick={() => setIsEditMode(true)} />
+        )}
+        mainContent={<div className="my-3 md:my-8">
+          <div className="flex flex-col items-center justify-center md:justify-between gap-y-4 md:gap-0 md:flex-row ">
+            <div className="flex items-center justify-center md:justify-start gap-x-1 md:gap-x-3">
               <NewFolderComponent />
               <ComboButtonFilterComponent optionsList={optionsList} onSelect={onSelect} isSelected={isSelected} />
             </div>
@@ -117,13 +121,6 @@ export default function Home() {
                 })
               )
             }
-            {/* {
-                filteredCollectionData.map((item: CollectionItem, id: number) => {
-                  return (
-                    <CollectionCardComponent data={item} isEditMode={isEditMode} key={`${id}`} onChange={handleTitleChange} />
-                  );
-                })
-            } */}
             </div>
           </div>
         </div>} 

@@ -12,7 +12,7 @@ export default function ActionItemsComponent({ onClick }: {
                 <SearchComponent queryParamName="search" />
                 <StyledButtonComponent iconPath="/fan-icon.svg" altText="Fan icon" />
             </div>
-            <div className="flex items-center gap-x-3">
+            <div className="flex items-center justify-center md:justify-start gap-x-3">
                 <StyledButtonComponent iconPath="/rename.svg" altText="Fan icon" onClick={onClick} />
                 <StyledButtonComponent iconPath="/delete.svg" altText="Fan icon" />
                 <StyledButtonComponent iconPath="/copy-clipboard-icon.svg" altText="Fan icon" />

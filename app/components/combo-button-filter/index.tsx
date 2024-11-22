@@ -3,7 +3,7 @@ import ButtonFilterComponent from "../button-filter"
 
 export default function ComboButtonFilterComponent({ optionsList, isSelected, onSelect }: ComboButtonFilterComponentProps) {
     return (
-        <div className="flex items-center gap-x-3">
+        <div className="flex items-center gap-x-1 md:gap-x-3">
         {
             optionsList.map((item, id: number) => {
                 return (

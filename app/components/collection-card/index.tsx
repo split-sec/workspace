@@ -10,7 +10,7 @@ export default function CollectionCardComponent({ data, isEditMode, onChange = (
 
     return (
         <div 
-            className={`${isEditMode ? "cursor-pointer" : ""} w-full h-full flex flex-col gap-y-3 group`}
+            className={`${isEditMode ? "" : "cursor-pointer"} w-full h-full flex flex-col gap-y-3 group`}
         >
         {
             data.type === 'Videos' ? (

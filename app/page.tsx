@@ -1,36 +1,57 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import ComboButtonFilterComponent from "./components/combo-button-filter";
 import ContentPage from "./components/content-page/content-page";
 import NewFolderComponent from "./components/new-folder";
 import SortByComponent from "./components/sortby";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { CollectionItem, getCollectionData, optionsList } from "./utils/collection";
+import CollectionCardComponent from "./components/collection-card";
 
 export default function Home() {
-  const [selectedOption, setSelectedOption] = useState<string>('All Files');
+  const router = useRouter();
+  const pathname = usePathname();
+  const queryParams = useSearchParams();
 
-  const optionsList = [
-    {
-      title: 'All Files',
-    },
-    {
-      title: 'Photos',
-    },
-    {
-      title: 'Videos',
-    },
-    {
-      title: 'Documents',
-    },
-  ];
+  const [collectionData, setCollectionData] = useState<CollectionItem[]>([]);
 
-  const onSelect = (option: string) => {
-    setSelectedOption(option);
-  };
+  const onSelect = useCallback(
+    (queryValue: string, queryType = 'type') => {
+      const params = new URLSearchParams(queryParams.toString())
+      params.set(queryType, queryValue)
+ 
+      router.push(pathname + '?' + params);
+    },
+    [queryParams]
+  );
 
-  const isSelected = (targetOption: string) => {
-    return targetOption === selectedOption;
-  };
+  const isSelected = useCallback(
+    (targetOption: string) => {
+      if (targetOption === 'All Files' && !queryParams.get('type')) {
+        return targetOption;
+      }
+      
+      return queryParams.get('type') === targetOption;
+    },
+    [queryParams]
+  );
+
+  useEffect(() => {
+    let data = getCollectionData();
+
+    const typeParam = queryParams.get('type');
+    if (typeParam && typeParam !== 'All Files') {
+      data = data.filter((item: CollectionItem) => item.type === typeParam);
+    }
+
+    const searchParam = queryParams.get('search');
+    if (searchParam) {
+      data = data.filter((item: CollectionItem) => item.title.toLowerCase().includes(searchParam.toLowerCase()));
+    }
+
+    setCollectionData(data);
+  }, [queryParams]);
   
   return (
     <>
@@ -45,7 +66,17 @@ export default function Home() {
             </div>
             <SortByComponent />
           </div>
-          
+          <div className="my-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-8">
+            {
+              collectionData.map((item: CollectionItem) => {
+                return (
+                  <CollectionCardComponent data={item} key={item.id} />
+                );
+              })
+            }
+            </div>
+          </div>
         </div>} 
         showActionItems={true}
       />
